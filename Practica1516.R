@@ -117,13 +117,12 @@ g3 <- g3 + geom_point(position=position_jitter(.1), alpha=.3, shape=1)
 g3
 
 #G3.c) añadir stat (línea de ajuste)
-g3 <- g3 + _______________________
+g3 <- g3 + stat_smooth(method="lm")
 g3
 
 #G3.d) añadir stat (línea de ajuste para todos)
-g3 <- g3 + _______________________
+g3 <- g3 + stat_smooth() + aes(col=factor(1))
 g3
-
 
 #G3.e) modificar colores escala
 g3 <- g3 + scale_colour_manual(values=c("red", "black", "skyblue"), labels=c("Total", "No votó", "Votó"))
@@ -132,7 +131,6 @@ g3
 #G3.f) modificar títulos ejes, título y título leyenda
 g3 <- g3 + labs(x= "Confianza instituciones privadas", y="Confianza en instituciones públicas", col="Elecciones 2016", title="G1. Confianza instituciones públicas y privadas" )
 g3
-
 
 #G3.g) incluir tema
 g3
