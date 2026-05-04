@@ -2,8 +2,9 @@
 ######## Tema 5: La presentación del dato ###################
 #### Introducción a la visualización de datos y ggplot2 #####
 ############### Práctica 15 y 16 ############################
-############### Data Science 2025 ###########################
+############### Data Science 2026 ###########################
 #############################################################
+#Amanda Robles
 
 #1. Cargar (e instala) los paquetes que vas a utilizar
 
@@ -20,7 +21,7 @@ library(gridExtra)
 
 #Limpia espacio y establece directorio de trabajo
 rm(list=ls())
-setwd("****")
+setwd("C:\\Users\\roble\\Desktop\\Practica15_AmandaRobles")
 getwd()
 d <- foreign::read.spss("cis3145t.sav", to.data.frame = T)
 
@@ -43,25 +44,24 @@ hist(d$confpriv)
 d$urnas16r <- recode(d$voto16, "NoVoto"="No voto", "NC"="NC", .default="Voto") 
 frq(d$urnas16r)
 
-
 #G1.a) Set-up ggplot
-g1 <- ggplot(d, aes(x = as.numeric(___), y = ____))
+g1 <- ggplot(d, aes(x = as.numeric(edad), y = confpub))
 g1 
 
 #G1.b) Añadir geoms: barras
-g1 <- g1 + ________________________________
+g1 <- g1 + geom_point(position= "jitter",alpha = .3, shape = 1)
 g1
 
 #G1.c) Añadir geoms: línea de ajuste
-g1 <- g1 + _____________________
+g1 <- g1 + geom_smooth(method="lm")
 g1
 
 #G1.d) Incluir facets
-g1 <- g1 + ____________________
+g1 <- g1 + facet_wrap( ~ esta)
 g1
 
 #G1.e) Añadir etiquetas
-g1 <- g1 + labs(x=______, y=_________________________, title="G1. Relación entre edad y confianza en instituciones públicas \npor clase social" )
+g1 <- g1 + labs(x= 'Edad', y= 'Confianza en las instituciones públicas', title="G1. Relación entre edad y confianza en instituciones públicas \npor clase social" )
 g1
 
 ###########################################################
