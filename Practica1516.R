@@ -174,8 +174,7 @@ g4 <- g4 + labs(x="", y="", title="G3. Distribuciones confianza en instituciones
 g4
 
 #G4.f) Probar different themes
-g4 <- g4 + theme_____()
-
+g4 <- g4 + theme_solarized()
 g4
 
 
