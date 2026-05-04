@@ -71,35 +71,37 @@ g1
 d2 <- filter(d, !is.na(urnas16r))
 
 #G2.a) Set-up ggplot
-g2 <- ggplot(d2, aes(___________________))
+g2 <- ggplot(d2, aes(x = esta, fill = urnas16r))
 g2 
 
 #G2.b) Añadir geoms: barras
-g2a <- g2 + __________ +
+g2a <- g2 +  geom_bar() +
   scale_x_discrete(labels = c("Alta", "Viejas Med", "Nuevas Med.", "Obr. cual", "Obr. no cual", "NC")) +
   labs(x="", y="", fill="")
 g2a
 
 #G2.c) Añadir geoms: barras - position="stack"
-g2b <- g2 + geom_bar(_________) +
+g2b <- g2 + geom_bar(position = "stack") +
           scale_x_discrete(labels = c("Alta", "Viejas Med", "Nuevas Med.", "Obr. cual", "Obr. no cual", "NC")) +
           labs(x="", y="", fill="")
 g2b
 
 #G2.d) Añadir geoms: barras - position="dodge"
-g2c <- g2 + geom_bar(__________) +
+g2c <- g2 + geom_bar(position="dodge") +
   scale_x_discrete(labels = c("Alta", "Viejas Med", "Nuevas Med.", "Obr. cual", "Obr. no cual", "NC")) +
   labs(x="", y="", fill="")
 g2c
 
 #G2.d) Añadir geoms: barras - position="dodge"
-g2d <- g2 + geom_bar(___________) +
+g2d <- g2 + geom_bar(position="fill") +
   scale_x_discrete(labels = c("Alta", "Viejas Med", "Nuevas Med.", "Obr. cual", "Obr. no cual", "NC")) +
   labs(x="", y="", fill="")
 g2d
 
 #G2.e) Añadir etiquetas
-g2comb <- ______________________________
+g2comb <- grid.arrange(g2a, g2b, g2c, g2d,
+                       ncol=2,
+                       top=quote("G4. Voto en 2016 por estatus social "))
 g2comb
 
 ###########################################################
